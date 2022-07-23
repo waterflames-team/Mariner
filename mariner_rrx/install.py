@@ -17,7 +17,7 @@ def install(args):
         print("RingRobotX not found.")
 
     mirror=args["--mirror"]
-    response = requests.get(mirror+"/"+args["skill_name"]+"/index.json")
+    response = requests.get(mirror+"/"+args["<skill_name>"]+"/index.json")
     now=json.loads(open("./config/api-version.json","r").read())
 
     if float(json.loads(response.text)["RingRobotX-Ver"]) < float(now["RingRobotX"]):#检查技能支持最低版本
@@ -27,16 +27,16 @@ def install(args):
     #==========================================技能安装区==========================================
 
     id=getRandom(5)
-    open("./temp_skill_"+id+".zip","wb").write(requests.get(mirror+"/"+args["skill_name"]+"/code.mar").content)# 下载mar文件
+    open("./temp_skill_"+id+".zip","wb").write(requests.get(mirror+"/"+args["<skill_name>"]+"/code.mar").content)# 下载mar文件
     zip_file = zipfile.ZipFile("./temp_skill_"+id+".zip")
     zip_list = zip_file.namelist()  # 得到压缩包里所有文件
 
     for f in zip_list:
-        zip_file.extract(f, "./func_packages/"+args["skill_name"])  # 循环解压文件到指定目录
+        zip_file.extract(f, "./func_packages/"+args["<skill_name>"])  # 循环解压文件到指定目录
 
     zip_file.close()  # 关闭文件，必须有，释放内存
 
-    skill_setup=importlib.import_module("func_packages."+args["skill_name"]+".setup")
+    skill_setup=importlib.import_module("func_packages."+args["<skill_name>"]+".setup")
 
     skill_setup.setup()
 

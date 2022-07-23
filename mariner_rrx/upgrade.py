@@ -12,7 +12,7 @@ from mariner_rrx.install import getRandom
 
 def upgrade(args):
     mirror = args["--mirror"]
-    response = requests.get(mirror + "/" + args["skill_name"] + "/index.json")
+    response = requests.get(mirror + "/" + args["<skill_name>"] + "/index.json")
     now = json.loads(open("./config/api-version.json", "r").read())
 
     if float(json.loads(response.text)["RingRobotX-Ver"]) < float(now["RingRobotX"]):  # 检查技能支持最低版本
@@ -23,21 +23,21 @@ def upgrade(args):
 
     id = getRandom(5)
     open("./temp_skill_" + id + ".zip", "wb").write(
-        requests.get(mirror + "/" + args["skill_name"] + "/code.mar").content)  # 下载mar文件
+        requests.get(mirror + "/" + args["<skill_name>"] + "/code.mar").content)  # 下载mar文件
     zip_file = zipfile.ZipFile("./temp_skill_" + id + ".zip")
     zip_list = zip_file.namelist()  # 得到压缩包里所有文件
 
     for f in zip_list:
-        zip_file.extract(f, "./func_packages/" + args["skill_name"])  # 循环解压文件到指定目录
+        zip_file.extract(f, "./func_packages/" + args["<skill_name>"])  # 循环解压文件到指定目录
 
     zip_file.close()  # 关闭文件，必须有，释放内存
 
-    skill_setup = importlib.import_module("func_packages." + args["skill_name"] + ".setup")
+    skill_setup = importlib.import_module("func_packages." + args["<skill_name>"] + ".setup")
 
     skill_setup.upgrade()
 
     os.remove("./temp_skill_" + id + ".zip")
-    print("Upgrade %s successful.", args["skill_name"])
+    print("Upgrade %s successful.", args["<skill_name>"])
 
 def upgrade_all(args):
     mirror = args["--mirror"]
@@ -52,6 +52,6 @@ def upgrade_all(args):
 
             if float(json.loads(response.text)["version"]) > float(jsonvero["version"]):
                 print("Upgrade: %s",jsonvero["name"])
-                upgrade({"skill_name":i,"--mirror":mirror})
+                upgrade({"<skill_name>":i,"--mirror":mirror})
 
 

@@ -7,12 +7,12 @@ import shutil
 def uninstall(args):
     if not os.path.exists("./ring.py"):
         print("RingRobotX not found.")
-    if not os.path.exists("./func_packages/"+args["skill_name"]+"/main.py"):
+    if not os.path.exists("./func_packages/"+args["<skill_name>"]+"/main.py"):
         print("Skill not found.")
 
-    skill_setup=importlib.import_module("func_packages."+args["skill_name"]+".setup")
+    skill_setup=importlib.import_module("func_packages."+args["<skill_name>"]+".setup")
 
     skill_setup.remove()
 
-    shutil.rmtree("./func_packages/"+args["skill_name"]+"/")
+    shutil.rmtree("./func_packages/"+args["<skill_name>"]+"/")
     print("Uninstall successful.")
