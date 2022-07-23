@@ -15,7 +15,7 @@ def upgrade(args):
     response = requests.get(mirror + "/" + args["<skill_name>"] + "/index.json")
     now = json.loads(open("./config/api-version.json", "r").read())
 
-    if float(json.loads(response.text)["RingRobotX-Ver"]) < float(now["RingRobotX"]):  # 检查技能支持最低版本
+    if float(json.loads(response.text)["RingRobotX-Ver"]) > float(now["RingRobotX"]):  # 检查技能支持最低版本
         print("This skill is not supported the RingRobotX version")
         return
 
