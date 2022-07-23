@@ -4,8 +4,6 @@ import importlib
 import os
 import shutil
 
-from docopt import docopt
-
 def uninstall(args):
     if not os.path.exists("./ring.py"):
         print("RingRobotX not found.")

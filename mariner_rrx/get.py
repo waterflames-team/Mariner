@@ -1,7 +1,6 @@
 # encoding:utf-8
 #!/usr/bin/env python3
 import platform
-from docopt import docopt
 import os
 
 def get(args):
