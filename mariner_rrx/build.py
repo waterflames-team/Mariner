@@ -6,9 +6,9 @@ import zipfile
 def build(args):
     if not os.path.exists("./config.json"):
         if os.path.exists("./ring.py"):
-            zip_dir="./func_packages/"+args["<skill_name>"]
+            zip_dir="./func_packages/"+args["--skill_name"]
         else:
-            zip_dir="./"+args["<skill_name>"]
+            zip_dir="./"+args["--skill_name"]
     else:
         zip_dir="./"
 

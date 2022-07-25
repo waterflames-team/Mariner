@@ -4,8 +4,9 @@
 Usage:
     marx get-rrx [--script-url=<git_url>]
     marx install <skill_name> [--mirror=<mirror_url>]
+    marx install-local <skill_file_path>
     marx uninstall <skill_name>
-    marx build [skill_name]
+    marx build [--skill_name=<skill_name>]
     marx upgrade-all [--mirror=<mirror_url>]
     marx upgrade <skill_name> [--mirror=<mirror_url>]
     marx -h | --help
@@ -24,6 +25,7 @@ __version__ = "v1.1.2"
 import mariner_rrx.build
 import mariner_rrx.get
 import mariner_rrx.install
+import mariner_rrx.install_local
 import mariner_rrx.uninstall
 import mariner_rrx.upgrade
 from docopt import docopt
@@ -43,6 +45,8 @@ def run():
         mariner_rrx.upgrade.upgrade(args)
     elif args.get("upgrade-all"):
         mariner_rrx.upgrade.upgrade_all(args)
+    elif args.get("install-local"):
+        mariner_rrx.install_local.install(args)
     else:
         print("Command not found.")
 

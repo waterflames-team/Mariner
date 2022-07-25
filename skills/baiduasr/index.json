@@ -1,4 +1,5 @@
 {
+  "name": "baiduasr",
   "enable": true,
   "funcType": "ASR",
   "version": 1,
