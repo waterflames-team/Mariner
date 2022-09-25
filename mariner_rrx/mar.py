@@ -1,6 +1,7 @@
 # encoding:utf-8
 #!/usr/bin/env python3
-""" Mariner-RRX -- A package manager for RingRobotX
+"""
+Mariner-RRX -- A package manager for RingRobotX
 Usage:
     marx get-rrx [--script-url=<git_url>]
     marx install <skill_name> [--mirror=<mirror_url>]
@@ -17,10 +18,10 @@ Options:
     -h --help     Show Help doc.
     -v --version     Show Version.
     --mirror=<mirror_url>     Set a mirror for skills. [default: https://gitee.com/waterflames-team/mariner/raw/master/skills/]
-    --script-url=<git_url>     Set a custom-script for RingRobotX. [default: https://gitee.com/waterflames-team/ring-robot-x/raw/master/install.sh]
+    --script-url=<git_url>     Set a custom-script for installing RingRobotX. [default: https://gitee.com/waterflames-team/ring-robot-x/raw/master/install.sh]
 """
 import random
-__version__ = "v1.1.2"
+__version__ = "v1.1.4"
 # 版本号改我！！！
 import mariner_rrx.build
 import mariner_rrx.get

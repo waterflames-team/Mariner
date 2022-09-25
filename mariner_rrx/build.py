@@ -12,7 +12,7 @@ def build(args):
     else:
         zip_dir="./"
 
-    zip = zipfile.ZipFile("./out.mar", 'w', zipfile.ZIP_DEFLATED)
+    zip = zipfile.ZipFile("./code.mar", 'w', zipfile.ZIP_DEFLATED)
     for path, dirnames, filenames in os.walk(zip_dir):
         this_path = os.path.abspath('.')
         fpath = path.replace(this_path, '')
@@ -20,4 +20,4 @@ def build(args):
             zip.write(os.path.join(path, filename), os.path.join(fpath, filename))
     zip.close()
 
-    print("Build successful! Output file: out.mar")
+    print("Build successful! Output file: code.mar")
