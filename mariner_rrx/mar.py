@@ -7,7 +7,7 @@ Usage:
     marx install <skill_name> [--mirror=<mirror_url>]
     marx install-local <skill_file_path>
     marx uninstall <skill_name>
-    marx build [--skill_name=<skill_name>]
+    marx build <skill_name>
     marx upgrade-all [--mirror=<mirror_url>]
     marx upgrade <skill_name> [--mirror=<mirror_url>]
     marx -h | --help
@@ -21,7 +21,7 @@ Options:
     --script-url=<git_url>     Set a custom-script for installing RingRobotX. [default: https://gitee.com/waterflames-team/ring-robot-x/raw/master/install.sh]
 """
 import random
-__version__ = "v1.1.4"
+__version__ = "v1.1.5"
 # 版本号改我！！！
 import mariner_rrx.build
 import mariner_rrx.get

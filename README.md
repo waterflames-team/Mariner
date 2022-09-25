@@ -35,6 +35,5 @@ marx upgrade-all #全部更新
 
 ### 打包mar技能文件
 ```shell
-marx build #在需要打包的技能目录下运行
-marx build [--skill_name=技能名] #在rrx根目录或者func_packages里运行需要指定技能名
+marx build 技能名 #在rrx根目录里运行
 ```
