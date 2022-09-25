@@ -4,13 +4,7 @@ import os
 import zipfile
 
 def build(args):
-    if not os.path.exists("./config.json"):
-        if os.path.exists("./ring.py"):
-            zip_dir="./func_packages/"+args["--skill_name"]
-        else:
-            zip_dir="./"+args["--skill_name"]
-    else:
-        zip_dir="./"
+    zip_dir="./func_packages/"+args["<skill_name>"]
 
     zip = zipfile.ZipFile("./code.mar", 'w', zipfile.ZIP_DEFLATED)
     for path, dirnames, filenames in os.walk(zip_dir):

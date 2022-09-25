@@ -37,10 +37,10 @@ def install(args):
     zip_file.close()  # 关闭文件，必须有，释放内存
 
     print("Getting version")
-    response = requests.get("./func_packages/" + args["<skill_name>"] + "/config.json")
+    response = open("./func_packages/" + args["<skill_name>"] + "/config.json","r").read()
     now = json.loads(open("./config/api-version.json", "r").read())
 
-    if float(json.loads(response.text)["RingRobotX-Ver"]) > float(now["RingRobotX"]):  # 检查技能支持最低版本
+    if float(json.loads(response)["RingRobotX-Ver"]) > float(now["RingRobotX"]):  # 检查技能支持最低版本
         print("This skill is not supported the RingRobotX version")
         print("Removing temporary files")
         os.remove("./temp_skill_" + id + ".zip")
