@@ -21,7 +21,7 @@ Options:
     --script-url=<git_url>     Set a custom-script for installing RingRobotX. [default: https://gitee.com/waterflames-team/ring-robot-x/raw/master/install.sh]
 """
 import random
-__version__ = "v1.1.6"
+__version__ = "v1.1.7"
 # 版本号改我！！！
 import mariner_rrx.build
 import mariner_rrx.get
