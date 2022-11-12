@@ -1,0 +1,2 @@
+[console_scripts]
+marx = mariner_rrx.mar:run
