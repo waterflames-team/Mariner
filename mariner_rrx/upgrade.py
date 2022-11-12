@@ -3,6 +3,7 @@
 import importlib
 import json
 import os
+import shutil
 import sys
 import zipfile
 
@@ -15,28 +16,36 @@ def upgrade(args):
         print("RingRobotX not found.")
         return
     mirror = args["--mirror"]
-    print("Getting remote version")
-    response = requests.get(mirror + "/" + args["<skill_name>"] + "/index.json")
-    now = json.loads(open("./config/api-version.json", "r").read())
-
-    if float(json.loads(response.text)["RingRobotX-Ver"]) > float(now["RingRobotX"]):  # 检查技能支持最低版本
-        print("This skill is not supported the RingRobotX version")
-        return
-
     # ==========================================技能安装区==========================================
 
     id = getRandom(5)
     print("downloading skills...")
     open("./temp_skill_" + id + ".zip", "wb").write(
-        requests.get(mirror + "/" + args["<skill_name>"] + "/code.mar").content)  # 下载mar文件
+        requests.get(mirror + "/" + args["<skill_name>"] + ".mar").content)  # 下载mar文件
+
+    print("Getting version")
+    zip_file = zipfile.ZipFile("./temp_skill_" + id + ".zip")
+    zip_file.extract("func_packages/"+args["<skill_name>"]+"/config.json","./marxtemp")
+
+    response = open("./marxtemp/"+"func_packages/"+args["<skill_name>"]+"/config.json", "r").read()
+    now = json.loads(open("./config/api-version.json", "r").read())
+    shutil.rmtree("./marxtemp/")
+
+    if float(json.loads(response)["RingRobotX-Ver"]) > float(now["RingRobotX"]):  # 检查技能支持最低版本
+        print("This skill is not supported the RingRobotX version")
+        print("Removing temporary files")
+        os.remove("./temp_skill_" + id + ".zip")
+        return
+
     print("Extracting skills")
     zip_file = zipfile.ZipFile("./temp_skill_" + id + ".zip")
     zip_list = zip_file.namelist()  # 得到压缩包里所有文件
 
     for f in zip_list:
-        zip_file.extract(f, "./func_packages/" + args["<skill_name>"])  # 循环解压文件到指定目录
+        zip_file.extract(f, "./")  # 循环解压文件到指定目录
 
     zip_file.close()  # 关闭文件，必须有，释放内存
+
     print("Executing script")
 
     sys.path.append(os.getcwd() + "/func_packages/" + args["<skill_name>"])
@@ -46,7 +55,7 @@ def upgrade(args):
     skill_setup.upgrade()
     print("Removing temporary files")
     os.remove("./temp_skill_" + id + ".zip")
-    print("Upgrade %s successful.", args["<skill_name>"])
+    print("Upgrade %s successfully.", args["<skill_name>"])
 
 def upgrade_all(args):
     mirror = args["--mirror"]
