@@ -67,4 +67,4 @@ marx build 技能名 #在rrx根目录里运行
 
 # 支持
 
-如果您觉得我们的开源软件对你有所帮助，可以向 WaterFlames 提供支持,戳这里 -> [https://afdian.net/a/waterflames](https://afdian.net/a/waterflames)
+如果您觉得我们的开源软件对你有所帮助，可以向 WaterFlames 提供支持,戳这里 -> [https://afdian.com/a/epeiuss](https://afdian.com/a/epeiuss)
