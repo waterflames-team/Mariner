@@ -49,9 +49,9 @@ marx build 技能名 #在rrx根目录里运行
 
 如果遇到了问题，或者是有一个好建议，欢迎联系我们：
 
-- 你可以选择 [戳我](https://gitee.com/waterflames-team/ter-gamer/issues "Issues") 来创建一个issue
+- 你可以选择 [戳我](https://gitee.com/waterflames-team/ring-robot-x/issues "Issues") 来创建一个issue
 - 也可以通过邮箱联系我们：[hi@waterflames.cn](mailto:hi@waterflames.cn)
-- 或是通过[以下方式](https://www.yuque.com/epeiuss/xykong/contact?singleDoc#)加入用户群
+- 或是通过[以下方式](https://www.yuque.com/yulimfish/xykong/contact?singleDoc#)加入用户群
 
 # 二次开发
 
@@ -61,10 +61,10 @@ marx build 技能名 #在rrx根目录里运行
 
 # 代码贡献
 
-我们欢迎每一位创作者加入本项目的开源贡献中。欢迎每一位贡献者创建pr，并按照 [提交信息规范](https://www.yuque.com/epeiuss/xykong/rule?singleDoc#) 来为项目进行贡献！
+我们欢迎每一位创作者加入本项目的开源贡献中。欢迎每一位贡献者创建pr，并按照 [提交信息规范](https://www.yuque.com/yulimfish/xykong/rule?singleDoc#) 来为项目进行贡献！
 
 感谢每一位贡献者！
 
 # 支持
 
-如果您觉得我们的开源软件对你有所帮助，可以向 WaterFlames 提供支持,戳这里 -> [https://afdian.com/a/epeiuss](https://afdian.com/a/epeiuss)
+如果您觉得我们的开源软件对你有所帮助，可以向 WaterFlames 提供支持,戳这里 -> [https://afdian.com/a/yulimfish](https://afdian.com/a/yulimfish)
